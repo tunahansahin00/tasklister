@@ -195,7 +195,7 @@ src/
 
 ```bash
 # Clone the repo · Repoyu klonlayın
-git clone https://github.com/andorabilisim/tasklister.git
+git clone https://github.com/tunahansahin00/tasklister.git
 cd tasklister
 
 # Install dependencies · Bağımlılıkları yükleyin
