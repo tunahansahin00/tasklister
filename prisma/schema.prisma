@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum Status {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  color     String   @default("#3b82f6")
+  icon      String   @default("📋")
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  tasks     Task[]
+}
+
+model Task {
+  id            String     @id @default(cuid())
+  title         String
+  description   String?
+  date          DateTime?
+  startTime     String?
+  endTime       String?
+  priority      Priority   @default(MEDIUM)
+  status        Status     @default(TODO)
+  estimatedMin  Int?
+  isRecurring   Boolean    @default(false)
+  recurringRule String?
+  categoryId    String?
+  category      Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  subtasks      SubTask[]
+}
+
+model SubTask {
+  id     String  @id @default(cuid())
+  title  String
+  isDone Boolean @default(false)
+  taskId String
+  task   Task    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  order  Int     @default(0)
+}
