@@ -299,8 +299,8 @@ npm run cron
 ### Category Management · Kategori Yönetimi
 ![Categories](screenshots/categories.png)
 
-### Task Form · Görev Formu
-![Task Form](screenshots/task-form.png)
+### Settings · Ayarlar
+![Settings](screenshots/settings.png)
 
 ---
 
