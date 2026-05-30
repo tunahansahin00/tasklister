@@ -1,8 +1,14 @@
 # TaskLister - Günlük Görev Planlama Paneli
 
-Dark theme ile tasarlanmış, tam özellikli bir görev yönetim uygulaması. Türkçe arayüz ile günlük işlerinizi planlayın, takip edin ve tamamlayın.
+Dark theme ile tasarlanmış, tam özellikli bir görev yönetim uygulaması. Türkçe ve İngilizce arayüz desteği ile günlük işlerinizi planlayın, takip edin ve tamamlayın.
 
 ## Özellikler
+
+### Dil Desteği
+- Türkçe (TR) — varsayılan arayüz dili
+- İngilizce (EN) — tam çeviri desteği
+- Tüm etiketler, placeholder'lar, hata mesajları ve bildirimler çift dilli
+- Dil tercihi tarayıcı diline göre otomatik algılanır
 
 ### Dashboard
 - Toplam görev, tamamlanan, devam eden ve tamamlanma oranı istatistik kartları
