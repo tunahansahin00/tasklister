@@ -1,97 +1,91 @@
-# TaskLister - Günlük Görev Planlama Paneli
+# TaskLister — Daily Task Planning Panel · Günlük Görev Planlama Paneli
 
-Dark theme ile tasarlanmış, tam özellikli bir görev yönetim uygulaması. Türkçe ve İngilizce arayüz desteği ile günlük işlerinizi planlayın, takip edin ve tamamlayın.
+> **EN:** A dark-themed, full-featured task management app with EN/TR support. Plan, track, and complete your daily tasks.  
+> **TR:** EN/TR dil desteğiyle, dark theme ile tasarlanmış tam özellikli bir görev yönetim uygulaması. Günlük işlerinizi planlayın, takip edin ve tamamlayın.
 
-## Özellikler
+---
 
-### Dil Desteği
-- Türkçe (TR) — varsayılan arayüz dili
-- İngilizce (EN) — tam çeviri desteği
-- Tüm etiketler, placeholder'lar, hata mesajları ve bildirimler çift dilli
-- Dil tercihi tarayıcı diline göre otomatik algılanır
+## Features · Özellikler
 
-### Dashboard
-- Toplam görev, tamamlanan, devam eden ve tamamlanma oranı istatistik kartları
-- Bugünkü görevlerinizi hızlıca görün ve yönetin
-- SWR ile otomatik önbellek ve canlı güncelleme
+### Language Support · Dil Desteği
+| EN | TR |
+|----|----|
+| Turkish (TR) — default UI language | Türkçe (TR) — varsayılan arayüz dili |
+| English (EN) — full translation support | İngilizce (EN) — tam çeviri desteği |
+| All labels, placeholders, errors & notifications in both languages | Tüm etiketler, placeholder'lar, hata mesajları ve bildirimler çift dilli |
+| Auto-detected from browser language | Dil tercihi tarayıcı diline göre otomatik algılanır |
 
-### Görev Yönetimi
-- Tam CRUD işlemleri (oluşturma, listeleme, düzenleme, silme)
-- 300ms debounce ile canlı arama
-- Durum (Yapılacak / Devam Ediyor / Tamamlandı), öncelik (Düşük / Orta / Yüksek / Kritik) ve kategori filtreleri
-- Görev detayları: başlık, açıklama, tarih, başlangıç/bitiş saati, tahmini süre
-- Alt görev desteği (checkbox ile tamamlama, sürükle-bırak sıralama)
-- Tekrarlayan görev desteği (günlük / haftalık / aylık)
+### Dashboard · Panel
+- **EN:** Total tasks, completed, in-progress, completion rate stat cards — Today's tasks at a glance — SWR-powered auto cache & live updates
+- **TR:** Toplam görev, tamamlanan, devam eden, tamamlanma oranı istatistik kartları — Bugünkü görevlerinizi hızlıca görün — SWR ile otomatik önbellek
 
-### Takvim Görünümü
-- React.memo ve useMemo ile optimize edilmiş özel ay takvimi
-- Her günde o güne ait görevlerin renk kodlu gösterimi
-- Ay navigasyonu, bugün vurgusu
+### Task Management · Görev Yönetimi
+- **EN:** Full CRUD — Live search with 300ms debounce — Filter by status (Todo / In Progress / Done), priority (Low / Medium / High / Critical), category — Title, description, date, start/end time, estimated duration — Sub-task support with checkbox toggle & drag-to-reorder — Recurring tasks (daily / weekly / monthly)
+- **TR:** Tam CRUD işlemleri — 300ms debounce ile canlı arama — Durum (Yapılacak / Devam Ediyor / Tamamlandı), öncelik (Düşük / Orta / Yüksek / Kritik) ve kategori filtresi — Başlık, açıklama, tarih, başlangıç/bitiş saati, tahmini süre — Alt görev desteği (checkbox, sürükle-bırak) — Tekrarlayan görev (günlük / haftalık / aylık)
 
-### Kanban Kart Görünümü
-- 3 sütun: TODO, IN_PROGRESS, DONE (Türkçe etiketlerle)
-- HTML5 Drag-and-Drop ile sürükle-bırak
-- Durum değişiminde anlık güncelleme
-- Her sütunda görev sayacı
+### Calendar View · Takvim Görünümü
+- **EN:** Custom month calendar optimized with React.memo & useMemo — Color-coded task preview per day — Month navigation, today highlight
+- **TR:** React.memo ve useMemo ile optimize özel ay takvimi — Her gün renk kodlu görev gösterimi — Ay navigasyonu, bugün vurgusu
 
-### İstatistikler
-- Recharts ile kategori dağılımı pasta grafiği
-- Haftalık oluşturulan görevler çubuk grafiği
-- Genel istatistik özet kartları
+### Kanban Board · Kart Görünümü
+- **EN:** 3 columns: TODO, IN_PROGRESS, DONE — HTML5 Drag-and-Drop — Instant status update — Task counter per column
+- **TR:** 3 sütun: TODO, IN_PROGRESS, DONE — HTML5 Sürükle-Bırak — Anlık durum güncelleme — Her sütunda görev sayacı
 
-### Kategori Yönetimi
-- CRUD işlemleri
-- 12 hazır renk paleti ve 16 emoji ikonu
-- Varsayılan kategoriler korumalı (silinemez)
-- Her kategorinin görev sayacı
+### Statistics · İstatistikler
+- **EN:** Pie chart for category distribution — Bar chart for weekly created tasks — Summary stat cards
+- **TR:** Kategori dağılımı pasta grafiği — Haftalık oluşturulan görevler çubuk grafiği — Özet istatistik kartları
 
-### Ayarlar & Bildirimler
-- Browser Notification API ile tarayıcı bildirimleri
-- Webhook URL yapılandırması (localStorage'da saklanır)
-- Görev güncellemelerinde otomatik webhook tetikleme
+### Category Management · Kategori Yönetimi
+- **EN:** CRUD operations — 12 preset colors & 16 emoji icons — Default categories protected from deletion — Task count per category
+- **TR:** CRUD işlemleri — 12 hazır renk ve 16 emoji ikonu — Varsayılan kategoriler silinemez — Her kategoride görev sayacı
 
-### Performans
-- Skeleton loading state'leri (görev kartı, istatistik, takvim, kanban)
-- SWR ile 500ms deduplication, revalidateOnFocus kapalı
-- React.memo ile TaskCard, KanbanCard, DayCell optimizasyonu
-- useMemo ve useCallback ile gereksiz render önleme
-- Debounced arama (300ms)
+### Settings & Notifications · Ayarlar & Bildirimler
+- **EN:** Browser Notification API — Webhook URL configuration (stored in localStorage) — Auto webhook trigger on task updates
+- **TR:** Browser Notification API ile tarayıcı bildirimleri — Webhook URL yapılandırması (localStorage) — Görev güncellemelerinde otomatik webhook tetikleme
 
-## Teknoloji Yığını
+### Performance · Performans
+- **EN:** Skeleton loading states (task cards, stats, calendar, kanban) — SWR with 500ms deduplication — React.memo on TaskCard, KanbanCard, DayCell — useMemo & useCallback optimization — Debounced search (300ms)
+- **TR:** Skeleton loading state'leri — SWR 500ms deduplication — React.memo optimizasyonu — useMemo ve useCallback — Debounce arama (300ms)
 
-| Katman | Teknoloji | Versiyon |
-|--------|-----------|----------|
+---
+
+## Tech Stack · Teknoloji Yığını
+
+| Layer · Katman | Technology · Teknoloji | Version · Versiyon |
+|----------------|------------------------|---------------------|
 | Framework | Next.js (App Router) | 16 |
-| Dil | TypeScript | ^5 |
-| Veritabanı | PostgreSQL 16 (Docker) | 16-alpine |
+| Language · Dil | TypeScript | ^5 |
+| Database · Veritabanı | PostgreSQL 16 (Docker) | 16-alpine |
 | ORM | Prisma | ^6 |
 | CSS | Tailwind CSS v4 | ^4 |
-| UI Bileşenleri | shadcn/ui (base-nova) | ^4 |
-| İkonlar | Lucide React | ^1 |
-| Veri Çekme | SWR | ^2 |
-| Grafikler | Recharts | ^3 |
-| Validasyon | Zod | ^4 |
-| Test | Vitest + Testing Library | ^4 |
+| UI Components | shadcn/ui (base-nova) | ^4 |
+| Icons · İkonlar | Lucide React | ^1 |
+| Data Fetching | SWR | ^2 |
+| Charts · Grafikler | Recharts | ^3 |
+| Validation · Validasyon | Zod | ^4 |
+| Testing · Test | Vitest + Testing Library | ^4 |
 
-## Mimariler
+---
+
+## Architecture · Mimariler
 
 ```
 src/
-├── app/                    # Next.js App Router sayfaları & API
+├── app/                    # Next.js App Router pages & API / sayfalar ve API
 │   ├── layout.tsx          # Root layout (Sidebar + Header + ErrorBoundary)
-│   ├── page.tsx            # Dashboard
-│   ├── tasks/page.tsx      # Görev listesi
-│   ├── calendar/page.tsx   # Takvim görünümü
+│   ├── page.tsx            # Dashboard / Panel
+│   ├── tasks/page.tsx      # Task list / Görev listesi
+│   ├── calendar/page.tsx   # Calendar view / Takvim görünümü
 │   ├── board/page.tsx      # Kanban board
-│   ├── stats/page.tsx      # İstatistikler
-│   ├── categories/page.tsx # Kategori yönetimi
-│   ├── settings/page.tsx   # Ayarlar
-│   └── api/                # REST API route'ları
-│       ├── tasks/          # Görev CRUD
-│       ├── categories/     # Kategori CRUD
-│       ├── subtasks/       # Alt görev CRUD
-│       ├── stats/          # İstatistikler
-│       └── cron/recurring/ # Tekrarlayan görev cron endpoint
+│   ├── stats/page.tsx      # Statistics / İstatistikler
+│   ├── categories/page.tsx # Category management / Kategori yönetimi
+│   ├── settings/page.tsx   # Settings / Ayarlar
+│   └── api/                # REST API routes
+│       ├── tasks/          # Task CRUD / Görev CRUD
+│       ├── categories/     # Category CRUD / Kategori CRUD
+│       ├── subtasks/       # SubTask CRUD / Alt görev CRUD
+│       ├── stats/          # Statistics / İstatistikler
+│       └── cron/recurring/ # Recurring task cron / Tekrarlayan görev cron
 ├── components/
 │   ├── layout/             # Sidebar, Header
 │   ├── tasks/              # TaskList, TaskCard, TaskForm, SubTaskList
@@ -100,171 +94,216 @@ src/
 │   ├── board/              # KanbanBoard
 │   ├── stats/              # Charts
 │   ├── categories/         # CategoryManager
-│   ├── ui/                 # shadcn/ui bileşenleri
+│   ├── ui/                 # shadcn/ui components
 │   └── ErrorBoundary.tsx   # React Error Boundary
-├── services/               # İş mantığı servis katmanı
-│   ├── taskService.ts      # Görev, kategori, alt görev, istatistik
-│   ├── recurringService.ts # Tekrarlayan görev işlemcisi
-│   └── webhookService.ts   # Webhook gönderme yardımcısı
+├── services/               # Business logic service layer / İş mantığı servis katmanı
+│   ├── taskService.ts      # Tasks, categories, subtasks, stats
+│   ├── recurringService.ts # Recurring task processor / Tekrarlayan görev işlemcisi
+│   └── webhookService.ts   # Webhook sender / Webhook gönderici
 ├── lib/
 │   ├── prisma.ts           # Prisma client singleton
-│   ├── fetchers.ts         # SWR hooks (useTasks, useCategories, mutasyonlar)
-│   ├── validations.ts      # Zod şemaları
+│   ├── fetchers.ts         # SWR hooks (useTasks, useCategories, mutations)
+│   ├── validations.ts      # Zod schemas / Zod şemaları
 │   ├── rate-limit.ts       # In-memory rate limiter
-│   ├── constants.ts        # Sabitler (etiketler, renkler)
-│   └── utils.ts            # cn() yardımcısı
+│   ├── constants.ts        # Labels, colors / Etiketler, renkler
+│   └── utils.ts            # cn() helper / cn() yardımcısı
 ├── hooks/
 │   └── useDebounce.ts      # Debounce hook
 ├── types/
-│   └── index.ts            # TypeScript tipleri
+│   └── index.ts            # TypeScript types / TypeScript tipleri
 └── test/
-    └── *.test.ts           # Birim testler
+    └── *.test.ts           # Unit tests / Birim testler
 ```
 
-## Veritabanı Şeması
+---
+
+## Database Schema · Veritabanı Şeması
 
 ### Category
-| Alan | Tip | Açıklama |
-|------|-----|----------|
+
+| Field · Alan | Type · Tip | Description · Açıklama |
+|-------------|-----------|-----------------|
 | id | String (cuid) | Primary key |
-| name | String | Benzersiz kategori adı |
-| color | String | HEX renk kodu |
-| icon | String | Emoji ikonu |
-| isDefault | Boolean | Varsayılan kategori koruması |
-| createdAt | DateTime | Oluşturma zamanı |
+| name | String | Unique category name / Benzersiz kategori adı |
+| color | String | HEX color code / HEX renk kodu |
+| icon | String | Emoji icon / Emoji ikonu |
+| isDefault | Boolean | Default category protection / Varsayılan kategori koruması |
+| createdAt | DateTime | Created timestamp / Oluşturma zamanı |
 
 ### Task
-| Alan | Tip | Açıklama |
-|------|-----|----------|
+
+| Field · Alan | Type · Tip | Description · Açıklama |
+|-------------|-----------|-----------------|
 | id | String (cuid) | Primary key |
-| title | String | Görev başlığı |
-| description | String? | Açıklama |
-| date | DateTime? | Görev tarihi |
-| startTime | String? | Başlangıç saati |
-| endTime | String? | Bitiş saati |
+| title | String | Task title / Görev başlığı |
+| description | String? | Description / Açıklama |
+| date | DateTime? | Task date / Görev tarihi |
+| startTime | String? | Start time / Başlangıç saati |
+| endTime | String? | End time / Bitiş saati |
 | priority | Enum | LOW, MEDIUM, HIGH, CRITICAL |
 | status | Enum | TODO, IN_PROGRESS, DONE |
-| estimatedMin | Int? | Tahmini süre (dk) |
-| isRecurring | Boolean | Tekrarlayan görev |
+| estimatedMin | Int? | Estimated duration (min) / Tahmini süre (dk) |
+| isRecurring | Boolean | Recurring task / Tekrarlayan görev |
 | recurringRule | String? | daily, weekly, monthly |
-| categoryId | String? | FK -> Category (ON DELETE SET NULL) |
-| subtasks | SubTask[] | Alt görevler (CASCADE) |
+| categoryId | String? | FK → Category (ON DELETE SET NULL) |
+| subtasks | SubTask[] | Sub-tasks (CASCADE) / Alt görevler (CASCADE) |
 
 ### SubTask
-| Alan | Tip | Açıklama |
-|------|-----|----------|
+
+| Field · Alan | Type · Tip | Description · Açıklama |
+|-------------|-----------|-----------------|
 | id | String (cuid) | Primary key |
-| title | String | Alt görev başlığı |
-| isDone | Boolean | Tamamlandı durumu |
-| taskId | String | FK -> Task (CASCADE) |
-| order | Int | Sıralama |
+| title | String | Sub-task title / Alt görev başlığı |
+| isDone | Boolean | Completion status / Tamamlandı durumu |
+| taskId | String | FK → Task (CASCADE) |
+| order | Int | Sort order / Sıralama |
 
-## API Endpoint'leri
+---
 
-Tüm endpoint'ler JSON döner. `POST` ve `PATCH` istekleri Zod ile validate edilir.  
-**Rate limit:** Her IP için 60 saniyede 100 istek.
+## API Endpoints · API Endpoint'leri
 
-| Metod | Endpoint | Açıklama |
-|-------|----------|----------|
-| GET | `/api/tasks` | Görev listesi (filtre parametreleri: status, priority, categoryId, date, search) |
-| POST | `/api/tasks` | Yeni görev oluştur |
-| GET | `/api/tasks/[id]` | Tekil görev |
-| PATCH | `/api/tasks/[id]` | Görev güncelle |
-| DELETE | `/api/tasks/[id]` | Görev sil |
-| GET | `/api/categories` | Kategori listesi (görev sayılarıyla) |
-| POST | `/api/categories` | Kategori oluştur |
-| PATCH | `/api/categories/[id]` | Kategori güncelle |
-| DELETE | `/api/categories/[id]` | Kategori sil |
-| POST | `/api/subtasks` | Alt görev oluştur |
-| PATCH | `/api/subtasks/[id]` | Alt görev güncelle |
-| DELETE | `/api/subtasks/[id]` | Alt görev sil |
-| GET | `/api/stats` | Dashboard istatistikleri |
-| GET | `/api/cron/recurring` | Tekrarlayan görevleri işle |
+> **EN:** All endpoints return JSON. `POST` and `PATCH` requests validated with Zod.  
+> **TR:** Tüm endpoint'ler JSON döner. `POST` ve `PATCH` istekleri Zod ile validate edilir.  
+> **Rate limit:** 100 requests per 60 seconds per IP · IP başına 60 saniyede 100 istek.
 
-## Başlangıç
+| Method · Metod | Endpoint | Description · Açıklama |
+|---------------|----------|-----------------|
+| GET | `/api/tasks` | List tasks (filter: status, priority, categoryId, date, search) · Görev listesi |
+| POST | `/api/tasks` | Create task · Görev oluştur |
+| GET | `/api/tasks/[id]` | Get single task · Tekil görev |
+| PATCH | `/api/tasks/[id]` | Update task · Görev güncelle |
+| DELETE | `/api/tasks/[id]` | Delete task · Görev sil |
+| GET | `/api/categories` | List categories (with task counts) · Kategori listesi |
+| POST | `/api/categories` | Create category · Kategori oluştur |
+| PATCH | `/api/categories/[id]` | Update category · Kategori güncelle |
+| DELETE | `/api/categories/[id]` | Delete category · Kategori sil |
+| POST | `/api/subtasks` | Create sub-task · Alt görev oluştur |
+| PATCH | `/api/subtasks/[id]` | Update sub-task · Alt görev güncelle |
+| DELETE | `/api/subtasks/[id]` | Delete sub-task · Alt görev sil |
+| GET | `/api/stats` | Dashboard statistics · Dashboard istatistikleri |
+| GET | `/api/cron/recurring` | Process recurring tasks · Tekrarlayan görevleri işle |
 
-### Gereksinimler
+---
+
+## Getting Started · Başlangıç
+
+### Requirements · Gereksinimler
 - Node.js >= 20
-- Docker (PostgreSQL için)
+- Docker (for PostgreSQL · PostgreSQL için)
 
-### Kurulum
+### Setup · Kurulum
 
 ```bash
-# Repoyu klonlayın
-git clone https://github.com/tunahan/tasklister.git
+# Clone the repo · Repoyu klonlayın
+git clone https://github.com/andorabilisim/tasklister.git
 cd tasklister
 
-# Bağımlılıkları yükleyin
+# Install dependencies · Bağımlılıkları yükleyin
 npm install
 
-# Ortam değişkenlerini ayarlayın
+# Configure environment · Ortam değişkenlerini ayarlayın
 cp .env.example .env
-# .env dosyasındaki DATABASE_URL'i düzenleyin
+# Edit DATABASE_URL in .env · .env dosyasındaki DATABASE_URL'i düzenleyin
 
-# PostgreSQL'i başlatın
+# Start PostgreSQL · PostgreSQL'i başlatın
 docker-compose up -d
 
-# Veritabanı migration'larını çalıştırın
+# Run database migrations · Veritabanı migration'larını çalıştırın
 npx prisma migrate dev
 
-# Örnek verileri yükleyin (10 varsayılan kategori)
+# Seed sample data (10 default categories) · Örnek verileri yükleyin
 npm run seed
 
-# Geliştirme sunucusunu başlatın
+# Start dev server · Geliştirme sunucusunu başlatın
 npm run dev
 ```
 
-Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
+Open · Açın: [http://localhost:3000](http://localhost:3000)
 
-### Tekrarlayan Görev Cron
+### Recurring Task Cron · Tekrarlayan Görev Cron
 
-Tekrarlayan görevlerin günlük olarak işlenmesi için:
+> **EN:** To process recurring tasks daily:  
+> **TR:** Tekrarlayan görevlerin günlük işlenmesi için:
 
 ```bash
-# Manuel tetikleme
+# Manual trigger · Manuel tetikleme
 npm run cron
 
-# crontab ile otomatik (her gün 00:00)
+# crontab auto (daily at 00:00) · crontab otomatik (her gün 00:00)
 0 0 * * * curl http://localhost:3000/api/cron/recurring
 ```
 
-## Script'ler
+---
 
-| Komut | Açıklama |
-|-------|----------|
-| `npm run dev` | Geliştirme sunucusu (Turbopack) |
-| `npm run build` | Production build |
-| `npm run start` | Production sunucusu |
-| `npm run lint` | ESLint ile kod kontrolü |
-| `npm run format` | Prettier ile kod formatlama |
-| `npm run format:check` | Format kontrolü |
-| `npm test` | Testleri çalıştır |
-| `npm run test:watch` | Testleri watch modunda çalıştır |
-| `npm run test:coverage` | Test koşum + kapsam raporu |
-| `npm run seed` | Örnek veri yükleme |
-| `npm run cron` | Tekrarlayan görevleri tetikleme |
+## Scripts · Script'ler
 
-## Geliştirme Notları
+| Command · Komut | Description · Açıklama |
+|----------------|-----------------|
+| `npm run dev` | Dev server (Turbopack) · Geliştirme sunucusu |
+| `npm run build` | Production build · Production build |
+| `npm run start` | Production server · Production sunucusu |
+| `npm run lint` | ESLint code check · ESLint kod kontrolü |
+| `npm run format` | Prettier format · Prettier formatlama |
+| `npm run format:check` | Format check · Format kontrolü |
+| `npm test` | Run tests · Testleri çalıştır |
+| `npm run test:watch` | Tests in watch mode · Watch modunda test |
+| `npm run test:coverage` | Tests + coverage report · Test + kapsam raporu |
+| `npm run seed` | Seed database · Örnek veri yükle |
+| `npm run cron` | Trigger recurring tasks · Tekrarlayan görevleri tetikle |
 
-### Güvenlik
-- `.env` dosyası `.gitignore`'a eklenmiştir. Asla commit etmeyin.
-- `.env.example` şablon olarak referans amaçlıdır.
-- API endpoint'leri rate limit (IP başına 100 req/dk) ile korunmaktadır.
-- Tüm input'lar Zod ile validate edilmektedir.
+---
 
-### Kod Kalitesi
-- ESLint 9 (flat config) + Next.js core-web-vitals ve TypeScript kuralları
-- Prettier ile tutarlı formatlama
-- Servis katmanı ile API route'larından ayrılmış iş mantığı
-- Tüm API route'larında try-catch hata yönetimi
+## Development Notes · Geliştirme Notları
 
-### Testler
-- Vitest + Testing Library ile birim testler
-- Zod validasyon testleri
-- Rate limiter testleri
-- useDebounce hook testleri
-- Sabitler testleri
+### Security · Güvenlik
+- `.env` is in `.gitignore` — never commit it · `.env` dosyası `.gitignore`'da — asla commit etmeyin
+- `.env.example` provided as template · `.env.example` şablon olarak referans
+- API endpoints protected with rate limiting (100 req/min per IP) · Rate limit koruması (IP başına 100 istek/dk)
+- All inputs validated with Zod · Tüm input'lar Zod ile validate edilir
 
-## Lisans
+### Code Quality · Kod Kalitesi
+- ESLint 9 (flat config) + Next.js core-web-vitals + TypeScript rules
+- Prettier for consistent formatting · Prettier ile tutarlı formatlama
+- Service layer separates business logic from API routes · Servis katmanı ile API route'larından ayrılmış iş mantığı
+- try-catch error handling on all API routes · Tüm API route'larında try-catch hata yönetimi
 
-MIT
+### Tests · Testler
+- Vitest + Testing Library unit tests · Birim testler
+- Zod validation tests · Zod validasyon testleri
+- Rate limiter tests · Rate limiter testleri
+- useDebounce hook tests · useDebounce hook testleri
+- Constants tests · Sabitler testleri
+
+---
+
+## Screenshots · Ekran Görüntüleri
+
+> **EN:** Screenshots of the main pages.  
+> **TR:** Ana sayfaların ekran görüntüleri.
+
+### Dashboard · Panel
+![Dashboard](screenshots/dashboard.png)
+
+### Task List · Görev Listesi
+![Task List](screenshots/tasks.png)
+
+### Kanban Board · Kart Görünümü
+![Kanban Board](screenshots/kanban.png)
+
+### Calendar · Takvim
+![Calendar](screenshots/calendar.png)
+
+### Statistics · İstatistikler
+![Statistics](screenshots/stats.png)
+
+### Category Management · Kategori Yönetimi
+![Categories](screenshots/categories.png)
+
+### Task Form · Görev Formu
+![Task Form](screenshots/task-form.png)
+
+---
+
+## License · Lisans
+
+MIT — see [LICENSE](./LICENSE) file · [LICENSE](./LICENSE) dosyasına bakın
