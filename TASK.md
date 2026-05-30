@@ -1,4 +1,4 @@
-# 🔷 Tunahan Task Manager
+# 🔷 Task Lister
 
 ## 🎯 Proje Hedefi
 PostgreSQL veritabanlı, Next.js ile full-stack, koyu temalı, günlük task planlama ve yönetim paneli.

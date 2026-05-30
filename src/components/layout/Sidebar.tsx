@@ -32,7 +32,7 @@ export default function Sidebar() {
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 text-sm font-bold text-white">
           TT
         </div>
-        <span className="text-lg font-semibold text-white">Tunahan Task</span>
+        <span className="text-lg font-semibold text-white">Task Lister</span>
       </div>
 
       <nav className="flex flex-col gap-1 p-3">

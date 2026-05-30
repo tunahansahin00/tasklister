@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tunahan Task Manager",
-  description: "Günlük görevlerinizi planlayın ve yönetin",
+  title: "Task Lister",
+  description: "Plan and manage your daily tasks",
 };
 
 export default function RootLayout({

@@ -22,13 +22,13 @@ export default function SettingsPage() {
 
   async function testNotification() {
     if ("Notification" in window && Notification.permission === "granted") {
-      new Notification("Tunahan Task Manager", {
+      new Notification("Task Lister", {
         body: "Bildirimler başarıyla çalışıyor!",
       });
     } else if ("Notification" in window) {
       const permission = await Notification.requestPermission();
       if (permission === "granted") {
-        new Notification("Tunahan Task Manager", {
+        new Notification("Task Lister", {
           body: "Bildirim izni verildi!",
         });
       }

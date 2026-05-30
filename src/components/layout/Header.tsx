@@ -14,7 +14,7 @@ const pageTitles: Record<string, string> = {
 
 export default function Header() {
   const pathname = usePathname();
-  const title = pageTitles[pathname] || "Tunahan Task Manager";
+  const title = pageTitles[pathname] || "Task Lister";
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/10 bg-[#0a0a0f]/80 px-6 backdrop-blur-xl">
