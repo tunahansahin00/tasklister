@@ -68,8 +68,8 @@ export default function TaskForm({ open, onClose, task, defaultDate }: TaskFormP
       startTime: startTime || null,
       endTime: endTime || null,
       priority,
-      estimatedMin: estimatedMin || null,
-      categoryId: categoryId || null,
+      estimatedMin: estimatedMin ? Number(estimatedMin) : null,
+      categoryId: categoryId && categoryId !== "none" ? categoryId : null,
       isRecurring: isRecurring !== "none",
       recurringRule: isRecurring !== "none" ? isRecurring : null,
     };
